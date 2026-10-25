@@ -1,0 +1,20 @@
+{% extends 'emails/base.html' %}
+
+{% block content %}
+<p style="margin:0 0 16px;">
+  vielen Dank für deine Registrierung bei <strong>Command-Vault</strong>!
+</p>
+
+<p style="margin:0 0 8px;">Dein 6-stelliger Bestätigungscode lautet:</p>
+
+<!-- Schöner großer Code-Kasten -->
+<div style="text-align:center;margin:24px 0;">
+  <span style="display:inline-block;padding:12px 24px;font-size:28px;font-weight:bold;letter-spacing:6px;background:#f3f4f6;border-radius:8px;color:#4f46e5;font-family:monospace;">
+    {{ code }}
+  </span>
+</div>
+
+<p style="margin:16px 0 0;font-size:13px;color:#6b7280;text-align:center;">
+  Dieser Code ist 15 Minuten gültig. Gib diesen Code niemals an Dritte weiter.
+</p>
+{% endblock %}
