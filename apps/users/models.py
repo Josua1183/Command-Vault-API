@@ -40,13 +40,14 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    class Interests(models.TextChoices):
-        SEARCHINGFORJOBS = 'searching_for_jobs', 'Suche nach Jobs'
-        SEARCHINGFORHELP = 'searching_for_help', 'Suche nach Hilfe'
-        ALL = 'all', 'Alle'
+    class Status(models.TextChoices):
+        DEFAULT = 'default', 'Default'
+        MODERATOR = 'moderator', 'Moderator'
+        ADMIN = 'admin', 'Admin'
 
     email = models.EmailField('E-Mail-Adresse', unique=True)
     is_verified = models.BooleanField(default=False)
+    status = models.CharField(max_length=255, choices=Status.choices, default=Status.DEFAULT)
 
     groups = models.ManyToManyField(
         'auth.Group',
